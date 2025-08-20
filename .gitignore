@@ -1,0 +1,90 @@
+# Python cache/bytecode
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Poetry / Pipenv
+poetry.lock
+# (optional: keep poetry.lock if you want reproducible installs)
+
+# Build artifacts
+build/
+dist/
+.eggs/
+*.egg-info/
+.installed.cfg
+
+# Pytest & coverage
+.pytest_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# MyPy & Ruff & Black caches
+.mypy_cache/
+.ruff_cache/
+.dmypy.json
+.pyre/
+
+# Jupyter notebooks checkpoints
+.ipynb_checkpoints
+
+# Local configs / secrets
+.env
+.env.*
+!.env.example  # keep example env files
+
+# Logs
+*.log
+
+# Frontend build
+frontend/node_modules/
+frontend/dist/
+frontend/.cache/
+*.tmp
+
+# Data directories to ignore
+data/raw/
+data/tmp/
+
+# Large binary artifacts (if not using Git LFS)
+*.geojson
+*.csv
+*.shp
+*.dbf
+*.shx
+*.prj
+*.qpj
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Ignore everything under the data dir by default
+aid_dashboard_data/**
+
+# Re-allow the data dir itself and all subdirs (so negated file rules can match)
+!aid_dashboard_data/
+!aid_dashboard_data/**/
+
+# Keep only lightweight outputs
+!aid_dashboard_data/**/*.geojson
+!aid_dashboard_data/**/*.json
+
+# Still ignore heavy/raw stuff
+aid_dashboard_data/**/raw/**
+aid_dashboard_data/**/tmp_shapefile/**
+aid_dashboard_data/**/*.shp
+aid_dashboard_data/**/*.dbf
+aid_dashboard_data/**/*.shx
+aid_dashboard_data/**/*.prj
+aid_dashboard_data/**/*.qpj
+aid_dashboard_data/**/*.zip

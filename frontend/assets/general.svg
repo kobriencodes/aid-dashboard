@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none"
+     xmlns="http://www.w3.org/2000/svg" aria-labelledby="title">
+  <title>General Location</title>
+  <!-- Outer pin -->
+  <path d="M16 29c0 0 9-9.2 9-16A9 9 0 1 0 7 13c0 6.8 9 16 9 16z"
+        fill="currentColor" fill-opacity="0.9"/>
+  <!-- Inner circle -->
+  <circle cx="16" cy="13" r="4.2" fill="#ffffff" fill-opacity="0.95"/>
+  <!-- Subtle outline -->
+  <path d="M16 29s9-9.2 9-16A9 9 0 1 0 7 13c0 6.8 9 16 9 16z"
+        stroke="currentColor" stroke-opacity="0.2" stroke-width="1"/>
+</svg>

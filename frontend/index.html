@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Safe Aid Dashboard</title>
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="./style.css" />
+  <style>html,body{margin:0;height:100%}#map{width:100%;height:100vh}</style>
+</head>
+<body>
+  <div id="map">
+    <div id="filters-wrapper">
+      <button id="filters-toggle" class="btn" aria-label="Toggle filters">
+        <i class="fa fa-sliders-h"></i>
+      </button>
+
+      <div id="filters" class="filter-panel">
+        <div class="panel-body">
+          <div class="filter-grid">
+            <div class="field">
+              <label for="langFilter">Language</label>
+              <select id="langFilter">
+                <option value="en" selected>English</option>
+                <option value="ar">العربية</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="datasetFilter">Dataset</label>
+              <select id="datasetFilter"></select>
+            </div>
+
+            <!-- TIME -->
+            <h4 class="section time-title">Time</h4>
+
+            <div class="time-subtitle">Quick range</div>
+            <div class="time-presets">
+              <button class="btn-chip" data-range="24h">Past 24h</button>
+              <button class="btn-chip" data-range="7d">Past 7d</button>
+              <button class="btn-chip" data-range="30d">Past 30d</button>
+              <button class="btn-chip" data-range="">All</button>
+            </div>
+
+            <div class="time-inputs">
+              <label for="timeSince">Since</label>
+              <input id="timeSince" type="datetime-local" />
+              <label class="checkbox-row">
+                <input id="includeUndated" type="checkbox" checked />
+                Include items with no timestamp
+              </label>
+            </div>
+
+            <div class="time-subtitle" style="margin-top:6px">Playback</div>
+            <div class="time-controls">
+              <button id="timePlay"  class="icon-btn" aria-label="Play">▶</button>
+              <button id="timePause" class="icon-btn" aria-label="Pause">⏸</button>
+              <input id="timeSlider" type="range" min="0" max="100" value="0" />
+              <div id="timeLabel">Now</div>
+            </div>
+
+            <div class="section-separator"></div>
+
+            <!-- HEALTH -->
+            <h4 class="section">Health Centers</h4>
+            <div class="field"><label for="typeFilter">Type</label><select id="typeFilter"></select></div>
+            <div class="field"><label for="serviceFilter">Service</label><select id="serviceFilter"></select></div>
+            <div class="field"><label for="urbanFilter">Urbanization</label><select id="urbanFilter"></select></div>
+            <div class="field"><label for="govFilter">Governorate</label><select id="govFilter"></select></div>
+
+            <!-- CHECKPOINTS -->
+            <h4 class="section">Checkpoints</h4>
+            <div class="field">
+              <label for="checkpointCountryFilter">Country</label>
+              <select id="checkpointCountryFilter">
+                <option value="">All</option>
+              </select>
+            </div>
+            <!-- ROADS -->
+            <h4 class="section">Roads</h4>
+            <div class="field"><label for="highwayFilter">Highway class</label><select id="highwayFilter"></select></div>
+            <div class="field"><label for="onewayFilter">One‑way</label><select id="onewayFilter"></select></div>
+
+            <div class="field field-row">
+              <label>Lanes</label>
+              <div class="row">
+                <input id="lanesMin" type="number" placeholder="min" />
+                <input id="lanesMax" type="number" placeholder="max" />
+              </div>
+            </div>
+
+            <div class="field field-row">
+              <label>Speed (maxspeed)</label>
+              <div class="row">
+                <input id="speedMin" type="number" placeholder="min" />
+                <input id="speedMax" type="number" placeholder="max" />
+              </div>
+            </div>
+
+            <h4 class="section">Crossings</h4>
+
+            <div class="field">
+              <label for="borderCountryFilter">Country</label>
+              <select id="borderCountryFilter">
+                <option value="">All</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="borderTypeFilter">Type</label>
+              <select id="borderTypeFilter">
+                <option value="">All</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="borderStatusFilter">Status</label>
+              <select id="borderStatusFilter">
+                <option value="">All</option>
+              </select>
+            </div>
+
+            <div class="section-separator"></div>
+            <div class="field full">
+              <label for="searchBox">Search…</label>
+              <input id="searchBox" type="text" placeholder="Search by name/type" />
+            </div>
+          </div>
+        </div>
+
+        <div class="panel-footer">
+          <button id="resetFilters" class="btn btn-secondary" type="button">Reset</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="facility-info">
+      <h3>Select a facility</h3>
+      <p>Details will appear here</p>
+    </div>
+    <div id="loading" aria-live="polite">Loading…</div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
+
+  <script type="module" src="./script.js"></script>
+</body>
+</html>
